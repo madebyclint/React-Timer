@@ -15,7 +15,7 @@ var Nav = React.createClass({
                 <div className="top-bar-right">
                     <ul className="menu">
                         <li className="menu-text">
-                            Created by Clint Bush | <a href="https://twitter.com/madebylicnt" target="_blank">@madebyclint</a>
+                            Created by Clint Bush | <a href="https://twitter.com/madebyclint" target="_blank">@madebyclint</a>
                         </li>
                     </ul>
                 </div>
