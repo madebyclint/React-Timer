@@ -1,0 +1,17 @@
+/*
+ * Navigation Styles
+ */
+
+.top-bar {
+    background-color: $nav-background;
+    .menu {
+        background-color: inherit;
+    }
+    .menu-text {
+        color: $nav-text-color;
+    }
+    .menu > .menu-text > a {
+        display: inline;
+        padding: 0;
+    }
+}

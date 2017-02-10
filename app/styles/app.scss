@@ -3,5 +3,8 @@
  * Author: Clint Bush - clint@madebyclint.com
  */
 
- // Variables
-p { color: blue; }
+// Variables
+@import "base/variables";
+
+// Components
+@import "components/navigation";
