@@ -5,10 +5,9 @@ var Main = (props) => {
     return (
         // Only one parent container can go here - so one div
         <div>
-            <div>
-                <div>
-                    <Nav/>
-                    <p>Main.jsx Rendered</p>
+            <Nav/>
+            <div className="row">
+                <div className="small-centered medium-6 large-4">
                     {props.children}
                 </div>
             </div>
