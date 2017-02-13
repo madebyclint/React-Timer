@@ -5,3 +5,13 @@ var $ = require('jQuery');
 var TestUtils = require('react-addons-test-utils');
 
 var CountdownForm = require('CountdownForm');
+
+describe('CountdownForm', () => {
+    it('should exist', () => {
+        expect(CountdownForm).toExist();
+    });
+
+    if('should call onSetCountdown if valid seconds entered', () => {
+        
+    });
+});
