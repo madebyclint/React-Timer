@@ -1,4 +1,4 @@
-var webpack = require('webpack');
+var webpack = require('webpack')
 
 module.exports = {
     entry: [
@@ -12,7 +12,7 @@ module.exports = {
     plugins: [
         new webpack.ProvidePlugin({
             '$': 'jquery',
-            'jQuery': 'jquery'    
+            'jQuery': 'jquery'
         })
     ],
     output: {
@@ -40,11 +40,11 @@ module.exports = {
                     presets: ['react', 'es2015', 'stage-0']
                 },
                 tests: /\.jsx?$/,
-                exclude: /(node_modules|bower_components)/,
+                exclude: /(node_modules|bower_components)/
             },
-            {test: /\.css$/, loader: "style!css!"},
-            {test: /\.scss$/, loader: "style!css!sass!"}
+            {test: /\.css$/, loader: 'style!css!'},
+            {test: /\.scss$/, loader: 'style!css!sass!'}
         ]
     },
     devtool: 'cheap-module-eval-source-map'
-};
+}
