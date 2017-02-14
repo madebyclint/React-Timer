@@ -1,0 +1,5 @@
+// https://github.com/feross/eslint-config-standard-jsx
+
+{
+  "extends": ["standard", "standard-jsx"]
+}
