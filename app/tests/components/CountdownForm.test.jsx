@@ -30,6 +30,6 @@ describe('CountdownForm', () => {
         countdownForm.refs.seconds.value = 'abc';
         TestUtils.Simulate.submit($el.find('form')[0]);
 
-        expect(spy).toNotHaveBeenCalled(109);
+        expect(spy).toNotHaveBeenCalled();
     })
 })
