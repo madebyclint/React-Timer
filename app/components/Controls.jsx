@@ -1,11 +1,8 @@
 const React = require('react')
 
-const Controls = React.createClass({
-    propTypes: {
-        countdownStatus: React.PropTypes.string.isRequired
-    },
-    render: function () {
-        const {countdownStatus} = this.props;
+class Controls extends React.Component {
+    render() {
+        const {countdownStatus} = this.props
         let renderStartStopButton = () => {
             if (countdownStatus === 'started') {
                 return <button className="button secondary">Pause</button>
@@ -13,7 +10,6 @@ const Controls = React.createClass({
                 return <button className="button primary">Start</button>
             }
         }
-
         return (
             <div className="controls">
                 {renderStartStopButton()}
@@ -21,6 +17,10 @@ const Controls = React.createClass({
             </div>
         )
     }
-})
+}
+
+Controls.propTypes = {
+    countdownStatus: React.PropTypes.string.isRequired
+}
 
 module.exports = Controls
