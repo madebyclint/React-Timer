@@ -4,14 +4,11 @@ const CountdownForm = require('CountdownForm')
 const Controls = require('Controls')
 
 class CountdownES6 extends React.Component {
-    constructor (props) {
-        super(props)
-
-        // Set up initial state
-        this.state = {
-            count: 0,
-            countdownStatus: 'stopped'
-        }
+    // ES7 method
+    // Set up initial state
+    state = {
+        count: 0,
+        countdownStatus: 'stopped'
     }
 
     componentDidUpdate = (prevProps, prevState) => {
@@ -20,13 +17,19 @@ class CountdownES6 extends React.Component {
                 case 'started':
                     this.startTimer();
                     break;
+                case 'stopped':
+                    this.setState({count: 0});
+                case 'paused':
+                    clearInterval(this.timer);
+                    this.timer = undefined;
+                    break;
             }
         }
     }
 
     startTimer = () => {
         this.timer = setInterval(() => {
-            var newCount = this.state.count - 1;
+            let newCount = this.state.count - 1;
             this.setState({
                 count: newCount >= 0 ? newCount : 0
             });
@@ -40,13 +43,25 @@ class CountdownES6 extends React.Component {
         })
     }
 
+    handleStatusChange = (newStatus) => {
+        this.setState({
+            countdownStatus: newStatus
+        })
+    }
+
     render() {
-        let {count} = this.state
+        let {count, countdownStatus} = this.state
+        let renderControlArea = () => {
+            if (countdownStatus !== 'stopped') {
+                return <Controls countdownStatus={countdownStatus} onStatusChange={this.handleStatusChange} />
+            } else {
+                return <CountdownForm onSetCountdown={this.handleSetCountdown} />
+            }
+        }
         return (
             <div>
                 <Clock totalSeconds={count} />
-                <Controls countdownStatus="stopped" />
-                <CountdownForm onSetCountdown={this.handleSetCountdown} />
+                {renderControlArea()}
             </div>
         )
     }
