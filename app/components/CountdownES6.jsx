@@ -1,6 +1,7 @@
 const React = require('react')
 const Clock = require('Clock')
 const CountdownForm = require('CountdownForm')
+const Controls = require('Controls')
 
 class CountdownES6 extends React.Component {
     constructor (props) {
@@ -44,6 +45,7 @@ class CountdownES6 extends React.Component {
         return (
             <div>
                 <Clock totalSeconds={count} />
+                <Controls countdownStatus="stopped" />
                 <CountdownForm onSetCountdown={this.handleSetCountdown} />
             </div>
         )
