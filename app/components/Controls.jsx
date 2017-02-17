@@ -15,6 +15,10 @@ class Controls extends React.Component {
         }
     }
 
+    componentWillReceiveProps = (newProps) => {
+        console.log('componentWillReceiveProps', newProps.countdownStatus);
+    }
+
     render() {
         const {countdownStatus} = this.props
         let renderStartStopButton = () => {
