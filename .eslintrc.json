@@ -1,3 +1,5 @@
+// https://github.com/feross/eslint-config-standard-jsx
+
 {
     "env": {
         "browser": true,
