@@ -15,6 +15,7 @@
         "sourceType": "module",
         "ecmaVersion": 2017
     },
+    "parser": "babel-eslint",
     "rules": {
         "no-const-assign": "warn",
         "no-this-before-super": "warn",
@@ -23,8 +24,8 @@
         "no-unused-vars": "warn",
         "constructor-super": "warn",
         "valid-typeof": "warn",
-        "jsx-quotes": ["error", "prefer-double"],
-        "indent": ["error", 4]
+        "jsx-quotes": ["warn", "prefer-double"],
+        "indent": ["warn", 4],
+        "strict": 0
     }
-    
 }
