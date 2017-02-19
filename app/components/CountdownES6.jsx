@@ -15,14 +15,15 @@ class CountdownES6 extends React.Component {
         if (this.state.countdownStatus !== prevState.countdownStatus) {
             switch (this.state.countdownStatus) {
                 case 'started':
-                    this.startTimer();
-                    break;
+                    this.startTimer()
+                    break
                 case 'stopped':
-                    this.setState({count: 0});
+                    this.setState({count: 0})
+                    // falls through
                 case 'paused':
-                    clearInterval(this.timer);
-                    this.timer = undefined;
-                    break;
+                    clearInterval(this.timer)
+                    this.timer = undefined
+                    break
             }
         }
     }
@@ -40,21 +41,21 @@ class CountdownES6 extends React.Component {
     // }
 
     componentWillUnmount = () => {
-        clearInterval(this.timer);
-        this.timer = undefined;
+        clearInterval(this.timer)
+        this.timer = undefined
     }
 
     startTimer = () => {
         this.timer = setInterval(() => {
-            let newCount = this.state.count - 1;
+            let newCount = this.state.count - 1
             this.setState({
                 count: newCount >= 0 ? newCount : 0
-            });
+            })
 
             if (newCount === 0) {
-                this.setState({countdownStatus: 'stopped'});
+                this.setState({countdownStatus: 'stopped'})
             }
-        }, 1000);
+        }, 1000)
     }
 
     handleSetCountdown = (seconds) => {
@@ -70,7 +71,7 @@ class CountdownES6 extends React.Component {
         })
     }
 
-    render() {
+    render () {
         let {count, countdownStatus} = this.state
         let renderControlArea = () => {
             if (countdownStatus !== 'stopped') {
