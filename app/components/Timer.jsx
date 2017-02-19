@@ -1,15 +1,32 @@
-var React = require('react');
-var Clock = require('Clock');
+const React = require('react')
+const Clock = require('Clock')
+const TimerControls = require('TimerControls')
 
-var Timer = React.createClass({
-    render: function () {
+class Timer extends React.Component {
+    // ES7 method
+    // Set up initial state
+    state = {
+        count: 0,
+        timerStatus: 'stopped'
+    }
+
+    render () {
+        let {timerStatus} = this.state
+        let renderControlArea = () => {
+            if (timerStatus !== 'stopped') {
+                return <TimerControls timerStatus={timerStatus} onStatusChange={this.handleStatusChange} />
+            } else {
+                return <TimerControls timerStatus={timerStatus} />
+            }
+        }
         return (
             <div>
-                <h2>Timer.jsx</h2>
-                <Clock totalSeconds={62}/>
+                <h1 className="page-title">Timer App</h1>
+                <Clock totalSeconds={62} />
+                {renderControlArea()}
             </div>
         )
     }
-});
+}
 
-module.exports = Timer;
+module.exports = Timer
