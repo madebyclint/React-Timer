@@ -26,6 +26,7 @@
         "valid-typeof": "warn",
         "jsx-quotes": ["warn", "prefer-double"],
         "indent": ["warn", 4],
+        "react/jsx-indent": ["warn", 4],
         "strict": 0
     }
 }
