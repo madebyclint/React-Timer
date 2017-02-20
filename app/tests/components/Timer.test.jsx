@@ -26,6 +26,7 @@ describe('Timer', () => {
     it('should pause timer on paused status', (done) => {
         var timer = TestUtils.renderIntoDocument(<Timer />)
         timer.setState({count: 10})
+        timer.handleStatusChange('started')
         timer.handleStatusChange('paused')
 
         setTimeout(() => {
@@ -37,8 +38,9 @@ describe('Timer', () => {
 
     it('should stop timer on stopped status', (done) => {
         var timer = TestUtils.renderIntoDocument(<Timer />)
+        timer.setState({count: 10})
+        timer.handleStatusChange('started')
         timer.handleStatusChange('stopped')
-        expect(timer.state.count).toBe(0)
 
         setTimeout(() => {
             expect(timer.state.timerStatus).toBe('stopped')
