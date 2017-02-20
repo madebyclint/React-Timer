@@ -10,7 +10,7 @@ $(document).foundation();
 
 // App CSS
 // Fix required http://stackoverflow.com/questions/40201262/webpack-css-syntaxerror-unexpected-token
-require('./styles/app.scss')
+require('applicationStyles')
 
 ReactDOM.render(
     <Router history={hashHistory}>
