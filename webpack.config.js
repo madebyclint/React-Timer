@@ -48,7 +48,13 @@ module.exports = {
                 test: /\.jsx?$/,
                 exclude: /(node_modules|bower_components)/
             },
-            {test: /\.css$/, loader: 'style!css!'},
+            {
+                test: /\.css$/,
+                include: [
+                    path.join(__dirname, 'app', 'styles')
+                ],
+                loaders: ['style-loader', 'css-loader']
+            },
             {
                 test: /\.scss$/,
                 include: [
