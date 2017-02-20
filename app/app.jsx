@@ -6,12 +6,11 @@ var Timer = require('Timer');
 var CountdownES6 = require('CountdownES6');
 
 // Load Foundation
-require('foundation-sites/dist/css/foundation.min.css');
 $(document).foundation();
 
 // App CSS
 // Fix required http://stackoverflow.com/questions/40201262/webpack-css-syntaxerror-unexpected-token
-require('applicationStyles');
+require('./styles/app.scss')
 
 ReactDOM.render(
     <Router history={hashHistory}>

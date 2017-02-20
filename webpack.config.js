@@ -3,8 +3,8 @@ var path = require('path')
 
 module.exports = {
     entry: [
-        'script!jquery/dist/jquery.min.js',
-        'script!foundation-sites/dist/js/foundation.min.js',
+        'script-loader!jquery/dist/jquery.min.js',
+        'script-loader!foundation-sites/dist/js/foundation.min.js',
         './app/app.jsx'
     ],
     externals: {
@@ -14,15 +14,6 @@ module.exports = {
         new webpack.ProvidePlugin({
             '$': 'jquery',
             'jQuery': 'jquery'
-        }),
-        new webpack.LoaderOptionsPlugin({
-            options: {
-                sassLoader: {
-                    includePaths: [
-                        path.resolve(__dirname, './node_modules/foundation-sites/scss')
-                    ]
-                }
-            }
         })
     ],
     output: {
@@ -43,7 +34,8 @@ module.exports = {
         },
         extensions: ['.js', '.jsx'],
         modules: [
-            __dirname
+            __dirname,
+            'node_modules'
         ]
     },
     module: {
@@ -57,8 +49,15 @@ module.exports = {
                 exclude: /(node_modules|bower_components)/
             },
             {test: /\.css$/, loader: 'style!css!'},
-            {test: /\.scss$/, loader: 'style!css!sass!'}
+            {
+                test: /\.scss$/,
+                include: [
+                    path.join(__dirname, 'app', 'styles')
+                ],
+                loaders: ['style-loader', 'css-loader', 'sass-loader']
+            }
         ]
     },
     devtool: 'cheap-module-eval-source-map'
 }
+
