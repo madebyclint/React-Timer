@@ -1,4 +1,5 @@
 var webpack = require('webpack')
+var path = require('path')
 
 module.exports = {
     entry: [
@@ -13,6 +14,15 @@ module.exports = {
         new webpack.ProvidePlugin({
             '$': 'jquery',
             'jQuery': 'jquery'
+        }),
+        new webpack.LoaderOptionsPlugin({
+            options: {
+                sassLoader: {
+                    includePaths: [
+                        path.resolve(__dirname, './node_modules/foundation-sites/scss')
+                    ]
+                }
+            }
         })
     ],
     output: {
@@ -20,7 +30,6 @@ module.exports = {
         filename: './public/bundle.js'
     },
     resolve: {
-        root: __dirname,
         alias: {
             Main: 'app/components/Main.jsx',
             Nav: 'app/components/Nav.jsx',
@@ -32,7 +41,10 @@ module.exports = {
             Controls: 'app/components/Controls.jsx',
             applicationStyles: 'app/styles/app.scss'
         },
-        extensions: ['', '.js', '.jsx']
+        extensions: ['.js', '.jsx'],
+        modules: [
+            __dirname
+        ]
     },
     module: {
         loaders: [
@@ -41,7 +53,7 @@ module.exports = {
                 query: {
                     presets: ['react', 'es2015', 'stage-0']
                 },
-                tests: /\.jsx?$/,
+                test: /\.jsx?$/,
                 exclude: /(node_modules|bower_components)/
             },
             {test: /\.css$/, loader: 'style!css!'},
